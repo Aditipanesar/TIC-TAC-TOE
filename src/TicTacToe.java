@@ -20,14 +20,14 @@ public class TicTacToe implements ActionListener{
           frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
           //size for the frame
           frame.setSize(900, 900);
-          frame.getContentPane().setBackground(new Color(133, 39, 171));  //set color for the bg
+          frame.getContentPane().setBackground(new Color(221, 188, 234));  //set color for the bg
           frame.setLayout(new BorderLayout());//setting layout for the frame
           frame.setVisible(true);
 
           //bg color for the text_field
-          text_field.setBackground(new Color(25,25,25));
-          text_field.setForeground(new Color(236, 236, 243));
-          text_field.setFont(new Font("INK FONT",Font.BOLD, 75 ));
+          text_field.setBackground(new Color(23,1,1,255));
+          text_field.setForeground(new Color(246,246,246,255));
+          text_field.setFont(new Font("Brush Script MT",Font.BOLD, 75 ));
           text_field.setHorizontalAlignment(JLabel.CENTER);
           text_field.setText("Tic-Tac-Toe!!");
           text_field.setOpaque(true);
@@ -201,6 +201,18 @@ public class TicTacToe implements ActionListener{
               o_wins(2,4,6);
           }
 
+
+          // Check for a draw condition
+          boolean draw = true;
+          for(int i=0; i<9; i++){
+              if(buttons[i].getText().equals("")){
+                  draw = false;
+                  break;
+              }
+          }
+          if(draw){
+              text_field.setText("Neither player wins :(");
+          }
 
 
       }
